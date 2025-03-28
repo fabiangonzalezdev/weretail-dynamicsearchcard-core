@@ -1,0 +1,5 @@
+com/fabiangonzalez/aem/models/DynamicSearchCardModel.class
+com/fabiangonzalez/aem/servlets/SearchCardServlet.class
+com/fabiangonzalez/aem/services/impl/ExternalApiServiceImpl.class
+com/fabiangonzalez/aem/Main.class
+com/fabiangonzalez/aem/services/ExternalApiService.class

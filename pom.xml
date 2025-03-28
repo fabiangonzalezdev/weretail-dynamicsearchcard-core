@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.fabiangonzalez.aem</groupId>
+    <artifactId>weretail-dynamicsearchcard.core</artifactId>
+    <version>1.0.0</version>
+    <packaging>bundle</packaging>
+    <name>We.Retail DynamicSearchCard - Core</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <aem.api.version>6.5.0</aem.api.version>
+    </properties>
+
+    <dependencies>
+        <!-- Uber jar de AEM -->
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>uber-jar</artifactId>
+            <version>6.5.0</version>
+            <classifier>apis</classifier>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Sling Models -->
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.models.api</artifactId>
+            <version>1.3.6</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Apache Commons IO y HTTPClient para consumir APIs externas -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.service.component.annotations</artifactId>
+            <version>1.4.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.9</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>5.1.6</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Name>${project.name}</Bundle-Name>
+                        <Export-Package>
+                            com.fabiangonzalez.aem.services.*,
+                            com.fabiangonzalez.aem.servlets.*
+                        </Export-Package>
+                        <Import-Package>
+                            org.osgi.service.component.annotations.*,
+                            org.apache.sling.api.*,
+                            org.apache.sling.models.annotations.*,
+                            javax.servlet.*,
+                            *
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
